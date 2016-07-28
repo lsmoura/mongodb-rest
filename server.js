@@ -11,6 +11,7 @@
 var fs = require("fs");
 var path = require("path");
 var express = require('express');
+var bodyParser = require('body-parser');
 var https = require('https');
 var extend = require("extend");
 
@@ -99,7 +100,8 @@ module.exports = {
     var app = express();
     require('express-csv');
 
-    app.use(require('body-parser')());
+    app.use(bodyParser.urlencoded({extended: false}));
+    app.use(bodyParser.json());
 
     if (config.humanReadableOutput) {
       app.set('json spaces', 4);
