@@ -532,7 +532,8 @@ describe('mongodb-rest', function () {
     it('can insert single document into collection', function (done) {
 
         var postData = {
-            value: "hi there",
+            _id: '592b27d295f8b31467993e2d',
+            value: "hi there"
         };
 
         var testDbName = test.genTestDbName();
@@ -548,7 +549,7 @@ describe('mongodb-rest', function () {
             })
             .then(function (result) {
                 expect(result.response.statusCode).toBe(201);
-                expect(result.data).toEqual({ ok: 1 });
+                expect(result.data).toEqual({ _id: '592b27d295f8b31467993e2d', ok: 1 });
 
                 return collectionJson(test.genCollectionUrl(testDbName, testCollectionName));
             })
