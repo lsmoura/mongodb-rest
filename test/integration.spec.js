@@ -531,8 +531,10 @@ describe('mongodb-rest', function () {
 
     it('can insert single document into collection', function (done) {
 
+        let postId = '592b27d295f8b31467993e2d';
+
         var postData = {
-            _id: '592b27d295f8b31467993e2d',
+            _id: postId,
             value: "hi there"
         };
 
@@ -549,14 +551,13 @@ describe('mongodb-rest', function () {
             })
             .then(function (result) {
                 expect(result.response.statusCode).toBe(201);
-                expect(result.data).toEqual({ _id: '592b27d295f8b31467993e2d', ok: 1 });
+                expect(result.data).toEqual({ _id: postId, ok: 1 });
 
                 return collectionJson(test.genCollectionUrl(testDbName, testCollectionName));
             })
             .then(function (result) {
                 expect(result.data.length).toBe(1);
                 expect(result.data[0].value).toBe(postData.value);
-                done();
             })
             .catch(function (err) {
                 done(err);
