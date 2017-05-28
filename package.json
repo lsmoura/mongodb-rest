@@ -26,6 +26,10 @@
     },
     {
       "name": "Samyak Bhuta"
+    },
+    {
+      "name": "Sergio Moura",
+      "email": "sergio@moura.ca"
     }
   ],
   "dependencies": {
@@ -36,7 +40,7 @@
     "extend": "^3.0.0",
     "mongodb": "^2.2.4",
     "mongodb-core": "^2.0.6",
-    "node-uuid": "^1.4.7"
+    "uuid": "^3.0.1"
   },
   "keywords": [
     "mongodb",
